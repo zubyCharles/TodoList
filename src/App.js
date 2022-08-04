@@ -1,5 +1,14 @@
-import './App.scss';
+import './App.css';
+import Header from './components/Header';
+import TodoList from './components/TodoList';
 
-function App() {}
+function App() {
+  return (
+    <main>
+      <Header />
+      <TodoList />
+    </main>
+  );
+}
 
 export default App;

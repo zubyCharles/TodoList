@@ -1,0 +1,28 @@
+{
+    "Todos": [
+        {
+            "title": "Complete online javascript course",
+            "status": "completed"
+        },
+        {
+            "title": "Jog around the park 3x",
+            "status": "active"
+        },
+        {
+            "title": "10 minutes meditation",
+            "status": "active"
+        },
+        {
+            "title": "Read for 1 hour",
+            "status": "active"
+        },
+        {
+            "title": "Pick up groceries",
+            "status": "active"
+        },
+        {
+            "title": "Complete Todo App on Frontend Mentor",
+            "status": "active"
+        }
+    ]
+}
