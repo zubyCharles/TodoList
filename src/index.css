@@ -13,3 +13,7 @@ body {
   margin: 0;
   box-sizing: border-box;
 }
+
+.bottom-tab button {
+  transition: all 120ms ease-in-out 0s;
+}

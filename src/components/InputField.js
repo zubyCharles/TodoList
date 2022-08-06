@@ -22,7 +22,7 @@ const InputField = () => {
       return setTodoTitle('');
     }
     dispatch({
-      type: 'add',
+      type: 'addTask',
       title: todoTitle,
       status: 'active',
     });
@@ -39,7 +39,7 @@ const InputField = () => {
         placeholder="Create a new todo..."
       />
       <button
-        className="text-slate-200 font-semibold p-3 bg-violet-600"
+        className="text-slate-200 text-sm font-semibold p-[10px] bg-violet-600 rounded"
         onClick={addItem}
       >
         Add

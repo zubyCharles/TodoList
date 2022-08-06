@@ -7,8 +7,15 @@ const TodoItem = ({ title, status, index }) => {
 
   const removeItem = (index) => {
     dispatch({
-      type: 'remove',
+      type: 'removeTask',
       index,
+    });
+  };
+
+  const toggleTaskState = (title) => {
+    dispatch({
+      type: 'toggleTaskState',
+      title,
     });
   };
 
@@ -19,6 +26,9 @@ const TodoItem = ({ title, status, index }) => {
           className={`${
             status === 'completed' ? 'radio-gradient' : null
           } w-[20px] h-[20px] border-[1px] border-slate-200 dark:border-slate-700 rounded-[50%]`}
+          onClick={() => {
+            toggleTaskState(title);
+          }}
         >
           <img
             className="w-[50%] m-auto translate-y-[70%]"
