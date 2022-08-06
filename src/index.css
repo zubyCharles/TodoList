@@ -14,6 +14,7 @@ body {
   box-sizing: border-box;
 }
 
-.bottom-tab button {
+.bottom-tab button,
+.clear-btn {
   transition: all 120ms ease-in-out 0s;
 }

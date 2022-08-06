@@ -5,10 +5,10 @@ import Cross from '../assets/icon-cross.svg';
 const TodoItem = ({ title, status, index }) => {
   const { dispatch } = useTodoList();
 
-  const removeItem = (index) => {
+  const removeItem = (title) => {
     dispatch({
       type: 'removeTask',
-      index,
+      title,
     });
   };
 
@@ -25,7 +25,7 @@ const TodoItem = ({ title, status, index }) => {
         <span
           className={`${
             status === 'completed' ? 'radio-gradient' : null
-          } w-[20px] h-[20px] border-[1px] border-slate-200 dark:border-slate-700 rounded-[50%]`}
+          } w-[20px] h-[20px] border-[1px] border-slate-200 dark:border-slate-700 rounded-[50%] cursor-pointer`}
           onClick={() => {
             toggleTaskState(title);
           }}
@@ -48,7 +48,7 @@ const TodoItem = ({ title, status, index }) => {
           {title}
         </span>
       </div>
-      <span className="" onClick={() => removeItem(index)}>
+      <span className="cursor-pointer" onClick={() => removeItem(title)}>
         <img className="w-[70%]" src={Cross} alt="" />
       </span>
     </li>

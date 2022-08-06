@@ -16,12 +16,12 @@ const BottomTab = () => {
   };
 
   return (
-    <div className="w-[90%] bg-white dark:bg-[#272937] py-4 my-6 mx-auto -translate-y-12 rounded-md">
+    <div className="w-[90%] lg:w-[25%] bg-white dark:bg-[#272937] py-4 lg:py-0 my-6 mx-auto -translate-y-12 lg:-translate-y-[6.7rem] rounded-md">
       <div className="bottom-tab w-[60%] mx-auto flex flex-row justify-between content-center">
         <button
           className={`${
             activeTab === 'all' ? 'text-violet-600' : 'text-slate-500'
-          } font-semibold`}
+          } lg:text-sm font-semibold`}
           onClick={filterAll}
         >
           All
@@ -29,7 +29,7 @@ const BottomTab = () => {
         <button
           className={`${
             activeTab === 'active' ? 'text-violet-600' : 'text-slate-500'
-          } font-semibold`}
+          } lg:text-sm font-semibold`}
           onClick={filterActive}
         >
           Active
@@ -37,7 +37,7 @@ const BottomTab = () => {
         <button
           className={`${
             activeTab === 'completed' ? 'text-violet-600' : 'text-slate-500'
-          } font-semibold`}
+          } lg:text-sm font-semibold`}
           onClick={filterCompleted}
         >
           Completed

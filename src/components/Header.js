@@ -8,14 +8,18 @@ const Header = () => {
 
   return (
     <div
-      className={`w-[100%] bg-[url('./assets/bg-mobile-light.jpg')] dark:bg-[url('./assets/bg-mobile-dark.jpg')] bg-no-repeat bg-cover`}
+      className={`w-[100%] lg:pt-2 bg-[url('./assets/bg-mobile-light.jpg')] lg:bg-[url('./assets/bg-desktop-light.jpg')] dark:bg-[url('./assets/bg-mobile-dark.jpg')] lg:dark:bg-[url('./assets/bg-desktop-dark.jpg')] bg-no-repeat bg-cover`}
     >
-      <div className="w-[90%] flex justify-between items-center py-14 mx-auto">
+      <div className="w-[90%] lg:w-[40%] flex justify-between items-center py-14 mx-auto">
         <h1 className="text-4xl text-white font-semibold tracking-[0.35rem]">
           TODO
         </h1>
         <div onClick={toggleTheme}>
-          <img src={theme === 'light' ? Moon : Sun} alt="" />
+          <img
+            className="cursor-pointer"
+            src={theme === 'light' ? Moon : Sun}
+            alt=""
+          />
         </div>
       </div>
       <InputField />

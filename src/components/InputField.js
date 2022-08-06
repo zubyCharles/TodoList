@@ -30,7 +30,7 @@ const InputField = () => {
   };
 
   return (
-    <div className="input-div flex items-center w-[90%] pb-20 mx-auto">
+    <div className="input-div flex items-center w-[90%] lg:w-[40%] pb-20 mx-auto">
       <input
         className="w-[100%] dark:bg-[#272937] text-sm text-slate-600 dark:text-slate-400 py-3 pl-4 mx-auto rounded outline-none"
         onChange={handleChange}

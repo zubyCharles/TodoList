@@ -9,15 +9,17 @@ const reducer = (state, action) => {
         },
       ];
     case 'removeTask':
-      return state.filter((_, index) => index !== action.index);
+      return state.filter((task, _) => task.title !== action.title);
     case 'toggleTaskState':
-      return state.map((task, index) =>
+      return state.map((task, _) =>
         task.title === action.title
           ? task.status === 'active'
             ? { ...task, status: 'completed' }
             : { ...task, status: 'active' }
           : task
       );
+    case 'clearCompleted':
+      return state.filter(({ status }) => status !== 'completed');
     default:
       return state;
   }
