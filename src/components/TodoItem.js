@@ -30,11 +30,13 @@ const TodoItem = ({ title, status }) => {
             toggleTaskState(title);
           }}
         >
-          <img
-            className="w-[50%] m-auto translate-y-[70%]"
-            src={status === 'completed' ? Check : null}
-            alt=""
-          />
+          {status === 'completed' && (
+            <img
+              className="w-[50%] m-auto translate-y-[70%]"
+              src={Check}
+              alt=""
+            />
+          )}
         </span>
         <span
           className={`${

@@ -29,9 +29,25 @@ const TodoList = () => {
     });
   };
 
+  const handleDragEnd = (result) => {
+    const { destination, source } = result;
+
+    console.log(result);
+
+    if (!destination || source.index === destination.index) {
+      return;
+    }
+
+    dispatch({
+      type: 'reorderList',
+      source: source.index,
+      destination: destination.index,
+    });
+  };
+
   return (
     <div className="w-[90%] lg:w-[40%] mx-auto bg-white dark:bg-[#272937] -translate-y-12 rounded-md">
-      <DragDropContext>
+      <DragDropContext onDragEnd={handleDragEnd}>
         <Droppable droppableId="lisItems">
           {(provided) => (
             <ul
@@ -41,8 +57,13 @@ const TodoList = () => {
             >
               {filterActiveTab(activeTab).map(({ title, status }, index) => (
                 <Draggable key={title} draggableId={title} index={index}>
-                  {(provided) => (
+                  {(provided, snapshot) => (
                     <div
+                      className={`${
+                        snapshot.isDragging
+                          ? 'translate-x-0 bg-violet-200 dark:bg-violet-600'
+                          : null
+                      }`}
                       ref={provided.innerRef}
                       {...provided.draggableProps}
                       {...provided.dragHandleProps}

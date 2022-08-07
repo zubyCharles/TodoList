@@ -5,7 +5,13 @@ const ThemeContext = createContext();
 export const useTheme = () => useContext(ThemeContext);
 
 const ThemeProvider = ({ children }) => {
-  const [theme, setTheme] = useState('light');
+  const [theme, setTheme] = useState(() => {
+    const Theme = JSON.parse(localStorage.getItem('siteTheme'));
+    if (Theme) {
+      return Theme;
+    }
+    return 'light';
+  });
 
   const toggleTheme = () => {
     if (theme === 'light') {
@@ -25,6 +31,10 @@ const ThemeProvider = ({ children }) => {
     } else {
       document.body.style.backgroundColor = '#161722';
     }
+  }, [theme]);
+
+  useEffect(() => {
+    localStorage.setItem('siteTheme', JSON.stringify(theme));
   }, [theme]);
 
   return (

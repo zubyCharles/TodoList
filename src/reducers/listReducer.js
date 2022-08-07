@@ -20,6 +20,13 @@ const reducer = (state, action) => {
       );
     case 'clearCompleted':
       return state.filter(({ status }) => status !== 'completed');
+    case 'reorderList':
+      return (() => {
+        const items = Array.from(state);
+        const [movedItem] = items.splice(action.source, 1);
+        items.splice(action.destination, 0, movedItem);
+        return items;
+      })();
     default:
       return state;
   }

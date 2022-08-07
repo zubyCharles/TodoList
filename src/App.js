@@ -6,11 +6,14 @@ import BottomTab from './components/BottomTab';
 function App() {
   return (
     <main>
-      {/* <section className="lg:w-[40%] mx-auto"> */}
       <Header />
       <TodoList />
       <BottomTab />
-      {/* </section> */}
+      <div className="w-[60%] pl-[5%] lg:pl-[24%] -translate-y-8 lg:-translate-y-16 mx-auto">
+        <p className="text-sm text-slate-600 font-medium">
+          Drag and drop to reorder list
+        </p>
+      </div>
     </main>
   );
 }
