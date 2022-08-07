@@ -52,7 +52,7 @@ const TodoList = () => {
                   )}
                 </Draggable>
               ))}
-              {/* {provided.placeholder} */}
+              {provided.placeholder}
             </ul>
           )}
         </Droppable>
