@@ -1,5 +1,6 @@
 import { useTodoList } from '../contexts/ListContext';
 import { useTabContext } from '../contexts/TabContext';
+import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd';
 import TodoItem from './TodoItem';
 
 const TodoList = () => {
@@ -30,11 +31,32 @@ const TodoList = () => {
 
   return (
     <div className="w-[90%] lg:w-[40%] mx-auto bg-white dark:bg-[#272937] -translate-y-12 rounded-md">
-      <ul className="w-[100%]">
-        {filterActiveTab(activeTab).map(({ title, status }, index) => (
-          <TodoItem title={title} status={status} index={index} />
-        ))}
-      </ul>
+      <DragDropContext>
+        <Droppable droppableId="lisItems">
+          {(provided) => (
+            <ul
+              className="w-[100%]"
+              {...provided.droppableProps}
+              ref={provided.innerRef}
+            >
+              {filterActiveTab(activeTab).map(({ title, status }, index) => (
+                <Draggable key={title} draggableId={title} index={index}>
+                  {(provided) => (
+                    <div
+                      ref={provided.innerRef}
+                      {...provided.draggableProps}
+                      {...provided.dragHandleProps}
+                    >
+                      <TodoItem title={title} status={status} index={index} />
+                    </div>
+                  )}
+                </Draggable>
+              ))}
+              {/* {provided.placeholder} */}
+            </ul>
+          )}
+        </Droppable>
+      </DragDropContext>
       <div className="w-[100%] flex flex-row justify-between p-4">
         <p className="text-xs text-slate-400">
           {filterActiveTab(activeTab).length === 1

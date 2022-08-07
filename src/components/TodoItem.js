@@ -2,7 +2,7 @@ import { useTodoList } from '../contexts/ListContext';
 import Check from '../assets/icon-check.svg';
 import Cross from '../assets/icon-cross.svg';
 
-const TodoItem = ({ title, status, index }) => {
+const TodoItem = ({ title, status }) => {
   const { dispatch } = useTodoList();
 
   const removeItem = (title) => {
