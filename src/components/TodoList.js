@@ -46,7 +46,7 @@ const TodoList = () => {
   };
 
   return (
-    <div className="w-[90%] lg:w-[40%] mx-auto bg-white dark:bg-[#272937] -translate-y-12 rounded-md">
+    <div className="todo-bg w-[90%] lg:w-[40%] mx-auto bg-white dark:bg-[#272937] -translate-y-12 rounded-md">
       <DragDropContext onDragEnd={handleDragEnd}>
         <Droppable droppableId="lisItems">
           {(provided) => (
